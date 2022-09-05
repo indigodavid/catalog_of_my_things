@@ -35,6 +35,12 @@ To get a local copy up and running follow these simple example steps.
     rspec --format documentation .
 ## Authors
 
+👤 **Oyelakin Ridwan Adio**
+
+- GitHub: [![GitHub Badge](https://img.shields.io/badge/-oyelakinG9-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/oyelakinG9)
+- Twitter: [![Twitter Badge](https://img.shields.io/badge/-OyelakinG1-white?logo=Twitter&logoColor=1DA1F2&style=plastic)](https://twitter.com/OyelakinG1)
+- LinkedIn: [![LinkedIn Badge](https://img.shields.io/badge/-oyelakin_ridwan_4b4a02b6-white?logo=LinkedIn&logoColor=1DA1F2&style=plastic)](https://linkedin.com/in/oyelakin-ridwan-4b4a02b6/)
+
 👤 **Jesús Vázquez**
 
 - GitHub: [![GitHub Badge](https://img.shields.io/badge/-jevazquezb-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/jevazquezb)
