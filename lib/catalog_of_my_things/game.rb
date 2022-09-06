@@ -5,12 +5,13 @@ class Game < Item
 
   def initialize(publish_date, multiplayer, last_played_at)
     super(publish_date)
+    date = last_played_at.split('-')
     @multiplayer = multiplayer
-    @last_played_at = last_played_at
+    @last_played_at = Date.new(date[0].to_i, date[1].to_i, date[2].to_i)
   end
 
   def can_be_archived?
-    super.can_be_archived? && ((Time.now - 2.years.ago) > @last_played_at)
+    super && ((DateTime.now - @last_played_at) > 2)
   end
 
   def to_json(_options = nil)
