@@ -1,9 +1,9 @@
 class Label
-  attr_reader :id, :items
-  attr_accessor :title, :color
+  attr_reader :items
+  attr_accessor :title, :color, :id
 
   def initialize(title, color, id = nil)
-    @id = "label#{Random.rand(1..1_000_000)}"
+    @id = id || "label#{Random.rand(1..1_000_000)}"
     @title = title
     @color = color
     @items = []
