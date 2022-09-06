@@ -11,15 +11,19 @@ describe Game do
     end
 
     it 'Game publish date should be 2017-05-06' do
-      expect(@game.publish_date).to eql('2017-05-06')
+      expect(@game.publish_date.to_s).to eql('2017-05-06')
     end
 
     it 'Game last played at date should be 2021-06-20' do
-      expect(@game.last_played_at).to eql('2021-06-20')
+      expect(@game.last_played_at.to_s).to eql('2021-06-20')
     end
 
     it 'Game multiplayer should be Yes' do
       expect(@game.multiplayer).to eql('Yes')
+    end
+
+    it 'Game can be archived' do
+      expect(@game.can_be_archived?).to be false
     end
   end
 end
