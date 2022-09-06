@@ -20,14 +20,17 @@ class Item
   end
 
   def add_label(label)
+    label.add_item(self)
     @label = label
   end
 
   def add_author(author)
+    author.add_item(self)
     @author = author
   end
 
   def add_genre(genre)
+    genre.add_item(self)
     @genre = genre
   end
 
