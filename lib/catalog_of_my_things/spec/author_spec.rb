@@ -5,7 +5,6 @@ describe Author do
   context 'When Author class is created' do
     before :each do
       @author = Author.new('Stephen', 'King')
-      
     end
 
     it 'Author is not null' do
