@@ -32,8 +32,9 @@ module BookLabelModule
       print 'Cover state (select 1 for "good" or 2 for "bad" ): '
       cover_option = gets.chomp.to_i
 
-      if cover_option == 1 then cover_state = "good"
-      elsif cover_option == 2 then cover_state = "bad" 
+      case cover_option
+      when 1 then cover_state = 'good'
+      when 2 then cover_state = 'bad'
       else
         puts "Wrong option \n\n"
         next
@@ -43,6 +44,6 @@ module BookLabelModule
 
     book = Book.new(publish_date, publisher, cover_state)
     puts 'Book added successfully.'
-    book    
+    book
   end
 end
