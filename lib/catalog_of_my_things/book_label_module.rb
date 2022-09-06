@@ -1,6 +1,6 @@
 require_relative './book'
 
-module AppMethods
+module BookLabelModule
   def list_books(books)
     if books.length.zero?
       puts 'No books registered so far.'
