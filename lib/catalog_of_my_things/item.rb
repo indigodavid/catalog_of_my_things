@@ -6,13 +6,14 @@ class Item
   attr_reader :id, :archived
 
   def initialize(publish_date, id = nil, archived = nil)
-    @publish_date = publish_date
+    date = publish_date.split('-')
+    @publish_date = Date.new(date[0].to_i, date[1].to_i, date[2].to_i)
     @id = id || Random.rand(1..1_000_000)
     @archived = archived || false
   end
 
   def can_be_archived?
-    (Time.now - 10.years.ago) > @publish_date
+    (DateTime.now - @publish_date) / 365 > 10
   end
 
   def move_to_archive
