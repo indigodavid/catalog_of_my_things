@@ -24,7 +24,7 @@ class App
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 
-  def add_addtional_data(item)
+  def add_additional_data(item)
     option = 0
     loop do
       puts 'Please choose one of the options to add to the current item: '
