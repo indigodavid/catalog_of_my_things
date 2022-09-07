@@ -1,4 +1,5 @@
 require_relative 'item'
+require 'json'
 
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
@@ -16,12 +17,12 @@ class Game < Item
 
   def to_json(*args)
     {
-      json.create_id => self.class.name,
+      JSON.create_id => self.class.name,
       'id' => @id,
       'publish_date' => @publish_date,
-      'genre' => @genre ? @genre.to_json : nil,
-      'author' => @author ? @author.to_json : nil,
-      'label' => @label ? @label.to_json : nil,
+      'genre' => @genre || nil,
+      'author' => @author || nil,
+      'label' => @label || nil,
       'archived' => @archived,
       'multiplayer' => @multiplayer,
       'last_played_at' => @last_played_at
@@ -36,10 +37,9 @@ class Game < Item
       object['id'],
       archived: object['archived']
     )
-    obj.add_author('author')
-    obj.add_genre('genre')
-    obj.add_label('label')
-
+    obj.author = object['author']
+    obj.genre = object['genre']
+    obj.label = object['label']
     obj
   end
 end
