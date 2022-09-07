@@ -53,7 +53,4 @@ def main
   end
 end
 
-# main
-
-app = App.new
-app.display_addtional_data
+main
