@@ -14,11 +14,11 @@ module GameAuthorModule
     end
   end
 
-  def list_authors(authors)
-    if authors.length.zero?
+  def list_authors
+    if @authors.length.zero?
       puts 'No authors registered so far.'
     else
-      authors.each do |author|
+      @authors.each do |author|
         puts "Author: #{author.first_name} #{author.last_name}"
       end
     end
