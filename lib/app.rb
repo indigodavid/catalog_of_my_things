@@ -35,14 +35,15 @@ class App
       print 'Option: '
       option = gets.chomp.to_i
       case option
-      when 1 then author_prompt(item)
-      when 2 then genre_prompt(item)
-      when 3 then label_prompt(item)
+      when 1 then item = author_prompt(item)
+      when 2 then item = genre_prompt(item)
+      when 3 then item = label_prompt(item)
       when 4 then break
       else
         puts 'Invalid option try again.'
       end
     end
+    item
   end
 
   def save_data(data_array, data_name)
