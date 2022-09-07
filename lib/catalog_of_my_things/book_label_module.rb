@@ -43,7 +43,23 @@ module BookLabelModule
     end
 
     book = Book.new(publish_date, publisher, cover_state)
+    @books.push(book) unless @books.include?(book)
+    save_data(@books, 'books')
     puts 'Book added successfully.'
-    book
+    add_additional_data(book)
+  end
+
+  def label_prompt(item)
+    print 'Title (type of article): '
+    title = gets.chomp
+
+    print 'Color: '
+    color = gets.chomp
+
+    label = Label.new(title, color)
+    @labels.push(label)
+    label.add_item(item)
+    save_data(@labels, 'labels')
+    p "Now your item has a label: #{label.title}."
   end
 end
