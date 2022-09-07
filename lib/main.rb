@@ -19,18 +19,32 @@ def goodbye_prompt
   print 'David Vera - Ecuador'
 end
 
+def display_options
+  puts '1) List all books'
+  puts '2) List all music albums'
+  puts '3) List of games'
+  puts '4) List all genres'
+  puts '5) List all labels'
+  puts '6) List all authors'
+  puts '7) Add a book'
+  puts '8) Add a music album'
+  puts '9) Add a game'
+  puts '10) Quit'
+  print 'Please choose an option to continue: '
+end
+
 def main
   app = App.new
   loop do
     welcome_prompt
     display_options
     option = gets.chomp.to_i
-    if option > 13 && option < 1
+    if option > 10 && option < 1
       print 'Invalid option. Press Enter to retry... '
       gets.chomp
       system('clear')
       next
-    elsif option == 13
+    elsif option == 10
       goodbye_prompt
       break
     else
@@ -39,4 +53,7 @@ def main
   end
 end
 
-main
+# main
+
+app = App.new
+app.display_addtional_data
