@@ -13,4 +13,13 @@ class Label
     @items.push(item_instance) unless @items.include?(item_instance)
     item_instance.label = self
   end
+
+  def to_json(*args)
+    {
+      id: @id,
+      title: @title,
+      color: @color,
+      items: @items,
+    }.to_json(*args)
+  end
 end
