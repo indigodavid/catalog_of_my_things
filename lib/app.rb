@@ -1,11 +1,11 @@
 class App
   def initialize
-    @books = load_books
-    @music_albums = load_music_albums
-    @games = load_games
     @authors = load_authors
     @genres = load_genres
     @labels = load_labels
+    @books = load_books
+    @music_albums = load_music_albums
+    @games = load_games
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
