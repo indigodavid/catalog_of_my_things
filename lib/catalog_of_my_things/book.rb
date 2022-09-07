@@ -20,7 +20,7 @@ class Book < Item
       publish_date: @publish_date,
       publisher: @publisher,
       cover_state: @cover_state,
-      archived: @archived
+      archived: @archived,
       label: @label || nil,
       author: @author || nil,
       genre: @genre || nil
