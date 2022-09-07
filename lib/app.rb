@@ -8,6 +8,7 @@ class App
     @labels = load_labels
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def run(option)
     case option
     when 1 then list_books
@@ -21,6 +22,7 @@ class App
     when 9 then add_game
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def add_addtional_data(item)
     option = 0
@@ -44,9 +46,7 @@ class App
   end
 
   def save_data(data_array, data_name)
-    data = data_array.map do |item|
-      item.to_json
-    end
+    data = data_array.map(&:to_json)
 
     File.write("./lib/catalog_of_my_things/#{data_name}.json", JSON.pretty_generate(data))
   end
