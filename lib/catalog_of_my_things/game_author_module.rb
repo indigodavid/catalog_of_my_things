@@ -44,7 +44,18 @@ module GameAuthorModule
 
     game = Game.new(publish_date, multiplayer, last_played_at)
     puts 'Game added successfully.'
-    game
+    @games << game unless @games.include?(game)
+    add_addtional_data(game)
+  end
+
+  def author_prompt(item)
+    print 'Please type the author\'s first name: '
+    first_name = gets.chomp
+    print 'Please type the author\'s first name: '
+    last_name = gets.chomp
+    author = Author.new(first_name, last_name)
+    item.add_author(author)
+    print "Author: #{author.first_name} #{author.first_name} was added successfully.\n\n"
   end
 
   def valid_date?(date)
