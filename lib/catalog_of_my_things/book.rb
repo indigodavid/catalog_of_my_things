@@ -1,4 +1,5 @@
 require_relative './item'
+require 'json'
 
 class Book < Item
   attr_accessor :publisher, :cover_state
@@ -13,5 +14,17 @@ class Book < Item
     super || @cover_state == 'bad'
   end
 
-  private :can_be_archived?
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'publish_date' => @publish_date,
+      'publisher' => @publisher,
+      'cover_state' => @cover_state,
+      'archived' => @archived,
+      'label' => @label || nil,
+      'author' => @author || nil,
+      'genre' => @genre || nil
+    }.to_json(*args)
+  end
 end

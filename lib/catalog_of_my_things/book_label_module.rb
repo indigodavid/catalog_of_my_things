@@ -22,8 +22,7 @@ module BookLabelModule
   end
 
   def add_book
-    print 'Publish date: '
-    publish_date = gets.chomp
+    publish_date = validate_date('Add publish date (YYYY-MM-DD): ')
 
     print 'Publisher: '
     publisher = gets.chomp
@@ -43,7 +42,23 @@ module BookLabelModule
     end
 
     book = Book.new(publish_date, publisher, cover_state)
+    new_book = add_additional_data(book)
+    @books.push(new_book) unless @books.include?(new_book)
+    save_data(@books, 'books')
     puts 'Book added successfully.'
-    book
+  end
+
+  def label_prompt(item)
+    print 'Title (type of article): '
+    title = gets.chomp
+
+    print 'Color: '
+    color = gets.chomp
+
+    label = Label.new(title, color)
+    @labels.push(label)
+    label.add_item(item)
+    save_data(@labels, 'labels')
+    p "Now your item has a label: #{label.title}."
   end
 end

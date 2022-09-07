@@ -1,11 +1,11 @@
 class App
   def initialize
-    @books = load_books
-    @music_albums = load_music_albums
-    @games = load_games
     @authors = load_authors
     @genres = load_genres
     @labels = load_labels
+    @books = load_books
+    @music_albums = load_music_albums
+    @games = load_games
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
@@ -24,7 +24,7 @@ class App
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 
-  def add_addtional_data(item)
+  def add_additional_data(item)
     option = 0
     loop do
       puts 'Please choose one of the options to add to the current item: '
@@ -35,14 +35,15 @@ class App
       print 'Option: '
       option = gets.chomp.to_i
       case option
-      when 1 then author_prompt(item)
-      when 2 then genre_prompt(item)
-      when 3 then label_prompt(item)
+      when 1 then item = author_prompt(item)
+      when 2 then item = genre_prompt(item)
+      when 3 then item = label_prompt(item)
       when 4 then break
       else
         puts 'Invalid option try again.'
       end
     end
+    item
   end
 
   def save_data(data_array, data_name)
