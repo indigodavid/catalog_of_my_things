@@ -2,11 +2,11 @@ require_relative './game'
 require_relative './author'
 
 module GameAuthorModule
-  def list_games(games)
-    if games.length.zero?
+  def list_games
+    if @games.length.zero?
       puts 'No games registered so far.'
     else
-      games.each do |game|
+      @games.each do |game|
         puts "Publish date: #{game.publish_date}"
         puts "Multiplayer: #{game.multiplayer}"
         puts "Last played at: #{game.last_played_at}"
