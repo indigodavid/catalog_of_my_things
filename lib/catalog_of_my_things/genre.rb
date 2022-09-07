@@ -1,3 +1,5 @@
+require 'json'
+
 class Genre
   attr_reader :items
   attr_accessor :id, :name
@@ -6,6 +8,21 @@ class Genre
     @name = name
     @id = id
     @items = []
+  end
+
+  def to_json(*args)
+    {
+      json.create_id => self.class.name
+      'name' => name
+      'id' => id
+      'items' => @items
+    }.to_json
+  end
+
+  def self.json_create(object)
+    obj1 = new(object['name'], object['id'])
+    obj1.items = object['items']
+    obj1
   end
 
   def add_item(item)
