@@ -51,4 +51,22 @@ class App
 
     File.write("./lib/catalog_of_my_things/#{data_name}.json", JSON.pretty_generate(data))
   end
+
+  def valid_date?(date)
+    date_format = '%Y-%m-%d'
+    DateTime.strptime(date, date_format)
+    true
+  rescue ArgumentError
+    false
+  end
+
+  def validate_date(message = 'Date (YYYY-MM-DD): ', error_message = 'Invalid date. Try again.')
+    date = ''
+    until valid_date?(date)
+      print message
+      date = gets.chomp
+      puts error_message unless valid_date?(date)
+    end
+    date
+  end
 end
