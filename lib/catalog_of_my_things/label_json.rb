@@ -1,10 +1,11 @@
 require_relative './label'
+require 'json'
 
 module LabelsJson
   def save_labels(labels)
     data = labels.map do |label|
       {
-        id: label.id
+        id: label.id,
         title: label.title,
         color: label.color
       }

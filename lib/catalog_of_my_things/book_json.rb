@@ -1,13 +1,14 @@
 require_relative './book'
+require 'json'
 
 module BooksJson
   def save_books(books)
     data = books.map do |book|
       {
-        id: book.id
+        id: book.id,
         publish_date: book.publish_date,
         publisher: book.publisher,
-        cover_state: book.cover_state,        
+        cover_state: book.cover_state,
         archived: book.archived
       }
     end
@@ -28,4 +29,3 @@ module BooksJson
     data
   end
 end
-
