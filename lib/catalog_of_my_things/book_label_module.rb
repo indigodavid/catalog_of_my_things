@@ -43,10 +43,10 @@ module BookLabelModule
     end
 
     book = Book.new(publish_date, publisher, cover_state)
-    @books.push(book) unless @books.include?(book)
+    new_book = add_additional_data(book)
+    @books.push(new_book) unless @books.include?(new_book)
     save_data(@books, 'books')
     puts 'Book added successfully.'
-    add_additional_data(book)
   end
 
   def label_prompt(item)
