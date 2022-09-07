@@ -29,7 +29,7 @@ describe Book do
     it 'has a method to_json' do
       book.add_label(label)
       puts book.to_json
-      expect(book.to_json).to be_truthy 
+      expect(book.to_json).to be_truthy
     end
   end
 end
