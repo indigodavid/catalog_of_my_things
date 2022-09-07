@@ -13,4 +13,24 @@ class Author
     item.author = self
     @items << item unless @items.include?(item)
   end
+
+  def to_json(*args)
+    {
+      json.create_id => self.class.name,
+      'id' => @id,
+      'first_name' => @first_name,
+      'last_name' => @last_name,
+      'items' => @items
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    obj = new(
+      object['first_name'],
+      object['last_name'],
+      object['id']
+    )
+    obj.items = object['items']
+    obj
+  end
 end
