@@ -35,16 +35,5 @@ class Item
     @genre = genre
   end
 
-  def to_json(_options = nil)
-    JSON.pretty_generate({
-                           id: @id,
-                           publish_date: @publish_date,
-                           genre: @genre.attributes,
-                           author: @author.attributes,
-                           label: @label.attributes,
-                           archived: @archived
-                         })
-  end
-
   private :can_be_archived?
 end
