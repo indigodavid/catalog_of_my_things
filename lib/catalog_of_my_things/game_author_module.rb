@@ -43,9 +43,10 @@ module GameAuthorModule
     end
 
     game = Game.new(publish_date, multiplayer, last_played_at)
+    new_game = add_addtional_data(game)
+    @games << new_game unless @games.include?(new_game)
+    save_data(@games, 'games')
     puts 'Game added successfully.'
-    @games << game unless @games.include?(game)
-    add_addtional_data(game)
   end
 
   def author_prompt(item)
@@ -56,23 +57,5 @@ module GameAuthorModule
     author = Author.new(first_name, last_name)
     item.add_author(author)
     print "Author: #{author.first_name} #{author.first_name} was added successfully.\n\n"
-  end
-
-  def valid_date?(date)
-    date_format = '%Y-%m-%d'
-    DateTime.strptime(date, date_format)
-    true
-  rescue ArgumentError
-    false
-  end
-
-  def validate_date(message = 'Date (YYYY-MM-DD): ', error_message = 'Invalid date. Try again.')
-    date = ''
-    until valid_date?(date)
-      print message
-      date = gets.chomp
-      puts error_message unless valid_date?(date)
-    end
-    date
   end
 end
