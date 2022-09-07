@@ -22,8 +22,7 @@ module BookLabelModule
   end
 
   def add_book
-    print 'Publish date: '
-    publish_date = gets.chomp
+    publish_date = validate_date('Add publish date (YYYY-MM-DD): ')
 
     print 'Publisher: '
     publisher = gets.chomp
