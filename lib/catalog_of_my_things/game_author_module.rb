@@ -8,7 +8,7 @@ module GameAuthorModule
     else
       games.each do |game|
         puts "Publish date: #{game.publish_date}"
-        puts "Multiplayer: #{game.multiplayer}" 
+        puts "Multiplayer: #{game.multiplayer}"
         puts "Last played at: #{game.last_played_at}"
       end
     end
