@@ -16,7 +16,7 @@ module BooksJson
 
   def load_books
     data = []
-    file = './lib/catalog_of_my_things/books.json'
+    file = "#{PATH_TO_JSON}books.json"
 
     if File.exist?(file) && File.read(file) != ''
       json_array = JSON.parse(File.read(file))

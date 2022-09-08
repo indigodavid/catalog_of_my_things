@@ -15,6 +15,7 @@ class App
   include LabelsJson
   include BooksJson
 
+  PATH_TO_JSON = './json/'.freeze
   def initialize
     @authors = load_authors
     @genres = load_genres
@@ -65,7 +66,7 @@ class App
   def save_data(data_array, data_name)
     data = data_array.map(&:to_json)
 
-    File.write("./lib/catalog_of_my_things/#{data_name}.json", JSON.pretty_generate(data))
+    File.write("#{PATH_TO_JSON}#{data_name}.json", JSON.pretty_generate(data))
   end
 
   def valid_date?(date)

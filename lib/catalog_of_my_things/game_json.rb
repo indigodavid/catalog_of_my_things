@@ -4,7 +4,7 @@ require 'json'
 module GameJson
   def load_games
     data = []
-    file = './lib/catalog_of_my_things/games.json'
+    file = "#{PATH_TO_JSON}games.json"
 
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |game|

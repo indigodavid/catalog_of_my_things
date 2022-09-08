@@ -35,7 +35,7 @@ module GameAuthorModule
 
     game = Game.new(publish_date, multiplayer, last_played_at)
     game.title = title
-    new_game = add_addtional_data(game)
+    new_game = add_additional_data(game)
     @games << new_game unless @games.include?(new_game)
     save_data(@games, 'games')
     puts 'Game added successfully.'
@@ -48,6 +48,8 @@ module GameAuthorModule
     last_name = gets.chomp
     author = Author.new(first_name, last_name)
     item.add_author(author)
+    @authors << author unless @authors.include?(author)
+    save_data(@authors, 'authors')
     print "Author: #{author.first_name} #{author.first_name} was added successfully.\n\n"
     item
   end
