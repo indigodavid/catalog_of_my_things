@@ -7,6 +7,10 @@ require_relative './catalog_of_my_things/book_label_module'
 require_relative './catalog_of_my_things/label_json'
 require_relative './catalog_of_my_things/book_json'
 
+require_relative './catalog_of_my_things/music_genre_module'
+require_relative './catalog_of_my_things/genre_json'
+require_relative './catalog_of_my_things/music_json'
+
 PATH_TO_JSON = './json/'.freeze
 
 class App
@@ -17,6 +21,10 @@ class App
   include BookLabelModule
   include LabelsJson
   include BooksJson
+
+  include MusicGenreModule
+  include GenreJson
+  include MusicAlbumJson
 
   def initialize
     @authors = load_authors
