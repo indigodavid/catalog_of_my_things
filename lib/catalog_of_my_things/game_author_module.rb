@@ -57,5 +57,6 @@ module GameAuthorModule
     author = Author.new(first_name, last_name)
     item.add_author(author)
     print "Author: #{author.first_name} #{author.first_name} was added successfully.\n\n"
+    item
   end
 end
