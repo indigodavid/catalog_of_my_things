@@ -1,4 +1,12 @@
+require_relative './catalog_of_my_things/book_label_module'
+require_relative './catalog_of_my_things/label_json'
+require_relative './catalog_of_my_things/book_json'
+
 class App
+  include BookLabelModule
+  include LabelsJson
+  include BooksJson
+
   def initialize
     @authors = load_authors
     @genres = load_genres
