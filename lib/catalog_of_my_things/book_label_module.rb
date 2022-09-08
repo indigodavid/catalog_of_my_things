@@ -54,7 +54,7 @@ module BookLabelModule
     print 'Color: '.colorize(:yellow)
     color = gets.chomp
 
-    label = Label.new(title, color)
+    label = @labels.find { |c_label| c_label.title == title && c_label.color == color } || Label.new(title, color)
     label.add_item(item)
     @labels.push(label) unless @labels.include?(label)
     save_data(@labels, 'labels')
