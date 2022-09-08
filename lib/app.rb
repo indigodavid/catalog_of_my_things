@@ -31,7 +31,7 @@ class App
       puts '1) Add author'
       puts '2) Add genre'
       puts '3) Add label'
-      puts '4) Keep as is'
+      puts '4) Keep as it is'
       print 'Option: '
       option = gets.chomp.to_i
       case option

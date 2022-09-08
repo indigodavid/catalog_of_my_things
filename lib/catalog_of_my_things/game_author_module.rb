@@ -52,7 +52,7 @@ module GameAuthorModule
   def author_prompt(item)
     print 'Please type the author\'s first name: '
     first_name = gets.chomp
-    print 'Please type the author\'s first name: '
+    print 'Please type the author\'s last name: '
     last_name = gets.chomp
     author = Author.new(first_name, last_name)
     item.add_author(author)
