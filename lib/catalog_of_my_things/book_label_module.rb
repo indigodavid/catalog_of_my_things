@@ -59,7 +59,7 @@ module BookLabelModule
 
     label = Label.new(title, color)
     label.add_item(item)
-    @labels.push(label) unless @labels.include?(label)  
+    @labels.push(label) unless @labels.include?(label)
     save_data(@labels, 'labels')
     puts "Now your item has a label: #{label.title}."
     item

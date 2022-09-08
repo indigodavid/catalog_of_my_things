@@ -22,7 +22,8 @@ module BooksJson
       json_array = JSON.parse(File.read(file))
       json_array.each do |book|
         book = JSON.parse(book)
-        book_to_obj = Book.new(book['publish_date'], book['publisher'], book['cover_state'], book['id'], archived: book['archived'])
+        book_to_obj = Book.new(book['publish_date'], book['publisher'], book['cover_state'], book['id'],
+                               archived: book['archived'])
 
         book_to_obj.add_label(find_label(book['label']['id'])) if book['label']
         book_to_obj.add_author(find_author(book['author']['id'])) if book['author']
