@@ -17,6 +17,8 @@ class MusicAlbum < Item
       'id' => id,
       'archived' => @archived,
       'genre' => genre
+      'author' => author
+      'label' => label
     }.to_json(*args)
   end
 
