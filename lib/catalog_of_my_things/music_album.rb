@@ -1,4 +1,4 @@
-require_relative './item'
+require_relative 'item'
 require 'json'
 
 class MusicAlbum < Item
@@ -16,7 +16,9 @@ class MusicAlbum < Item
       'on_spotify' => on_spotify,
       'id' => id,
       'archived' => @archived,
-      'genre' => genre
+      'genre' => genre,
+      'label' => label,
+      'author' => author
     }.to_json(*args)
   end
 
