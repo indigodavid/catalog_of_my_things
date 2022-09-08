@@ -8,6 +8,7 @@ module GameJson
 
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |game|
+        game = JSON.parse(game)
         obj = Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'], game['id'], game['archived'])
 
         game_author = @authors.find { |author| obj.author.id == author.id }
