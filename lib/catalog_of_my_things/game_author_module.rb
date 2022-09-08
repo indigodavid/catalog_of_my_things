@@ -49,7 +49,7 @@ module GameAuthorModule
     print 'Please type the author\'s last name: '.colorize(:yellow)
     last_name = gets.chomp
     author = @authors.find do |c_author|
-      c_author.first_name == first_name && c_author.last_name == last_name 
+      c_author.first_name == first_name && c_author.last_name == last_name
     end || Author.new(first_name, last_name)
     item.add_author(author)
     @authors << author unless @authors.include?(author)

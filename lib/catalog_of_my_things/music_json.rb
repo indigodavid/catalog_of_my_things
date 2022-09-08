@@ -10,7 +10,7 @@ module MusicAlbumJson
       JSON.parse(File.read(file)).each do |music_album|
         music_album = JSON.parse(music_album)
         obj = MusicAlbum.new(music_album['publish_date'], music_album['on_spotify'], music_album['id'],
-                       archived: music_album['archived'])
+                             archived: music_album['archived'])
         obj.title = music_album['title']
 
         obj.add_label(find_label(music_album['label']['id'])) if music_album['label']
