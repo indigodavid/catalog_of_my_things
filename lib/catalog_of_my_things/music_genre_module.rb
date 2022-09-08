@@ -3,8 +3,6 @@ require_relative './music_album'
 require_relative './genre'
 
 module MusicGenreModule
-
-
   def list_music
     if @musics.length.zero?
       puts 'No music registered so far.'
@@ -17,24 +15,24 @@ module MusicGenreModule
   end
 
   def list_genre
-    if @authors.length.zero?
+    if @genres.length.zero?
       puts 'No genre name registered so far.'
     else
-      @authors.each do |genre|
+      @genres.each do |genre|
         puts "Name: #{genre.name}"
       end
     end
   end
-  
+
   def add_music_album
     publish_date = validate_date('Publish date (YYYY-MM-DD): ')
-    on_spotify = validate_date('When was it last played (YYYY-MM-DD)? ')
+    on_spotify = validate_date('Was it Spotified YES or NO? ')
 
-    while true
-      print 'Is it multiplayer? Select 1 for Yes, 2 for No: '
+    loop do
+      print 'Is it spotify? Select 1 for Yes, 2 for No: '
       on_spotify = gets.chomp.to_i
 
-      case multiplayer
+      case on_spotify
       when 1 then on_spotify = 'Yes'
       when 2 then on_spotify = 'No'
       else
@@ -43,7 +41,7 @@ module MusicGenreModule
       end
       break
     end
-    
+
     music = MusicAlbum.new(publish_date, on_spotify)
     new_music = add_addtional_data(music)
     @musics << new_music unless @games.include?(new_game)
