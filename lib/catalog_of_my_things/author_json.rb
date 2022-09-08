@@ -4,7 +4,7 @@ require 'json'
 module AuthorJson
   def load_authors
     data = []
-    file = "#{PATH_TO_JSON}author.json"
+    file = "#{PATH_TO_JSON}authors.json"
 
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |author|
