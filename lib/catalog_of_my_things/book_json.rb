@@ -8,6 +8,7 @@ module BooksJson
 
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |book|
+        book = JSON.parse(book)
         data.push(Book.new(book['publish_date'], book['publisher'], book['cover_state'], book['id'], book['archived']))
       end
     end
