@@ -1,21 +1,23 @@
 require_relative './book'
+require_relative './label'
+require 'date'
 
 module BookLabelModule
-  def list_books(books)
-    if books.length.zero?
+  def list_books
+    if @books.length.zero?
       puts 'No books registered so far.'
     else
-      books.each do |book|
+      @books.each do |book|
         puts "Publish date: #{book.publish_date}, Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
       end
     end
   end
 
-  def list_labels(labels)
-    if labels.length.zero?
+  def list_labels
+    if @labels.length.zero?
       puts 'No labels registered so far.'
     else
-      labels.each do |label|
+      @labels.each do |label|
         puts "Title: #{label.title}, Color: #{label.color}"
       end
     end
@@ -56,9 +58,10 @@ module BookLabelModule
     color = gets.chomp
 
     label = Label.new(title, color)
-    @labels.push(label)
     label.add_item(item)
+    @labels.push(label) unless @labels.include?(label)
     save_data(@labels, 'labels')
-    p "Now your item has a label: #{label.title}."
+    puts "Now your item has a label: #{label.title}."
+    item
   end
 end

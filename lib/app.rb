@@ -2,10 +2,18 @@ require_relative './catalog_of_my_things/game_json'
 require_relative './catalog_of_my_things/author_json'
 require_relative './catalog_of_my_things/game_author_module'
 
+require_relative './catalog_of_my_things/book_label_module'
+require_relative './catalog_of_my_things/label_json'
+require_relative './catalog_of_my_things/book_json'
+
 class App
   include GameAuthorModule
   include GameJson
   include AuthorJson
+
+  include BookLabelModule
+  include LabelsJson
+  include BooksJson
 
   def initialize
     @authors = load_authors
