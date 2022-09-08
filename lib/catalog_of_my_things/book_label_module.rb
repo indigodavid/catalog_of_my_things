@@ -8,7 +8,8 @@ module BookLabelModule
       puts 'No books registered so far.'
     else
       @books.each do |book|
-        puts "Title: #{book.title}, Publish date: #{book.publish_date}, Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
+        puts "Title: #{book.title}, Publish date: #{book.publish_date},
+              Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
       end
     end
   end
@@ -24,7 +25,7 @@ module BookLabelModule
   end
 
   def add_book
-    print'Insert the title: '
+    print 'Insert the title: '
     title = gets.chomp
 
     publish_date = validate_date('Add publish date (YYYY-MM-DD): ')
