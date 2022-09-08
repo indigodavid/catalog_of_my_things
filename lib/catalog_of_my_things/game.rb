@@ -1,4 +1,5 @@
 require_relative 'item'
+require 'json'
 
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
@@ -11,19 +12,34 @@ class Game < Item
   end
 
   def can_be_archived?
-    super && ((DateTime.now - @last_played_at) > 2)
+    super && ((DateTime.now - @last_played_at) / 365.25 > 2)
   end
 
-  def to_json(_options = nil)
-    JSON.pretty_generate({
-                           id: @id,
-                           publish_date: @publish_date,
-                           genre: @genre ? @genre.attributes : nil,
-                           author: @author ? @author.attributes : nil,
-                           label: @label ? @label.attributes : nil,
-                           archived: @archived,
-                           multiplayer: @multiplayer,
-                           last_played_at: @last_played_at
-                         })
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'publish_date' => @publish_date,
+      'genre' => @genre || nil,
+      'author' => @author || nil,
+      'label' => @label || nil,
+      'archived' => @archived,
+      'multiplayer' => @multiplayer,
+      'last_played_at' => @last_played_at
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    obj = new(
+      object['publish_date'],
+      object['multiplayer'],
+      object['last_played_at'],
+      object['id'],
+      archived: object['archived']
+    )
+    obj.author = object['author']
+    obj.genre = object['genre']
+    obj.label = object['label']
+    obj
   end
 end

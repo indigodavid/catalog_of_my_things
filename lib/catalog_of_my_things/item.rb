@@ -21,16 +21,22 @@ class Item
   end
 
   def add_label(label)
+    return unless label
+
     label.add_item(self)
     @label = label
   end
 
   def add_author(author)
+    return unless author
+
     author.add_item(self)
     @author = author
   end
 
   def add_genre(genre)
+    return unless genre
+
     genre.add_item(self)
     @genre = genre
   end

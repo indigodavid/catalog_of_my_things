@@ -1,8 +1,16 @@
+require_relative './catalog_of_my_things/game_json'
+require_relative './catalog_of_my_things/author_json'
+require_relative './catalog_of_my_things/game_author_module'
+
 require_relative './catalog_of_my_things/book_label_module'
 require_relative './catalog_of_my_things/label_json'
 require_relative './catalog_of_my_things/book_json'
 
 class App
+  include GameAuthorModule
+  include GameJson
+  include AuthorJson
+
   include BookLabelModule
   include LabelsJson
   include BooksJson
@@ -39,7 +47,7 @@ class App
       puts '1) Add author'
       puts '2) Add genre'
       puts '3) Add label'
-      puts '4) Keep as is'
+      puts '4) Keep as it is'
       print 'Option: '
       option = gets.chomp.to_i
       case option
@@ -58,5 +66,23 @@ class App
     data = data_array.map(&:to_json)
 
     File.write("./lib/catalog_of_my_things/#{data_name}.json", JSON.pretty_generate(data))
+  end
+
+  def valid_date?(date)
+    date_format = '%Y-%m-%d'
+    DateTime.strptime(date, date_format)
+    true
+  rescue ArgumentError
+    false
+  end
+
+  def validate_date(message = 'Date (YYYY-MM-DD): ', error_message = 'Invalid date. Try again.')
+    date = ''
+    until valid_date?(date)
+      print message
+      date = gets.chomp
+      puts error_message unless valid_date?(date)
+    end
+    date
   end
 end
