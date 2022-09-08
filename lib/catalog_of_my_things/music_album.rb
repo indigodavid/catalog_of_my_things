@@ -11,7 +11,8 @@ class MusicAlbum < Item
 
   def to_json(*args)
     {
-      json.create_id => self.class.name,
+      JSON.create_id => self.class.name,
+      'title' => title,
       'publish_date' => publish_date,
       'on_spotify' => on_spotify,
       'id' => id,
@@ -24,11 +25,13 @@ class MusicAlbum < Item
 
   def self.json_create(object)
     objc = new(object['publish_date'], object['on_spotify'], object['id'], archived: object['archived'])
-    objc.add_genre('genre')
+    objc.author = object['author']
+    objc.genre = object['genre']
+    objc.label = object['label']
     objc
   end
 
   def can_be_archived?
-    super && @on_spotify ? true : false
+    super && @on_spotify == 'Yes'
   end
 end

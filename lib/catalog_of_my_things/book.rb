@@ -2,7 +2,7 @@ require_relative './item'
 require 'json'
 
 class Book < Item
-  attr_accessor :publisher, :cover_state, :title
+  attr_accessor :publisher, :cover_state
 
   def initialize(publish_date, publisher, cover_state, id = nil, archived: false)
     super(publish_date, id, archived)
