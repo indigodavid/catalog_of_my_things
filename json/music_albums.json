@@ -1,0 +1,4 @@
+[
+  "{\"json_class\":\"MusicAlbum\",\"title\":\"Number of the Beast\",\"publish_date\":\"1987-09-09\",\"on_spotify\":\"Yes\",\"id\":268697,\"archived\":{\"archived\":{\"archived\":false}},\"genre\":null,\"label\":null,\"author\":null}",
+  "{\"json_class\":\"MusicAlbum\",\"title\":\"La Leyenda del Hada y El Mago\",\"publish_date\":\"1989-07-07\",\"on_spotify\":\"Yes\",\"id\":47463,\"archived\":{\"archived\":false},\"genre\":null,\"label\":{\"json_class\":\"Label\",\"id\":487012,\"title\":\"CD\",\"color\":\"White\"},\"author\":{\"json_class\":\"Author\",\"id\":650156,\"first_name\":\"Miguel\",\"last_name\":\"Giardino\"}}"
+]

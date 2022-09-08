@@ -1,0 +1,4 @@
+[
+  "{\"json_class\":\"Book\",\"id\":593896,\"title\":\"The Shining\",\"publish_date\":\"1964-08-08\",\"publisher\":\"Vertigo\",\"cover_state\":\"bad\",\"archived\":false,\"label\":null,\"author\":null,\"genre\":{\"json_class\":\"Genre\",\"name\":\"Horror\",\"id\":155901}}",
+  "{\"json_class\":\"Book\",\"id\":733901,\"title\":\"The Fellowship of the Ring\",\"publish_date\":\"1930-09-09\",\"publisher\":\"Tol\",\"cover_state\":\"good\",\"archived\":false,\"label\":{\"json_class\":\"Label\",\"id\":310341,\"title\":\"Book\",\"color\":\"Black\"},\"author\":{\"json_class\":\"Author\",\"id\":762768,\"first_name\":\"JR\",\"last_name\":\"Tolkien\"},\"genre\":{\"json_class\":\"Genre\",\"name\":\"Fantasy\",\"id\":731860}}"
+]

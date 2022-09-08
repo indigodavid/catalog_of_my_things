@@ -1,9 +1,10 @@
 require_relative './app'
+require 'colorize'
 
 def welcome_prompt
   print "====================================================\n"
   print "                                                    \n"
-  print "               Catalog of my Things                 \n"
+  print "               Catalog of my Things                 \n".colorize(:light_blue)
   print "                                                    \n"
   print "====================================================\n"
   print "\n\n"
@@ -13,7 +14,7 @@ end
 def goodbye_prompt
   print "\nThank you for using our App! Good bye!"
   print "\n\n"
-  print "Developed by:\n"
+  print "Developed by:\n\n".colorize(:cyan)
   print "Oyelakin Ridwan - Nigeria\n"
   print "Jesus Vazquez - Mexico\n"
   print "David Vera - Ecuador\n"
@@ -30,7 +31,7 @@ def display_options
   puts '8) Add a music album'
   puts '9) Add a game'
   puts '10) Quit'
-  print 'Please choose an option to continue: '
+  print 'Please choose an option to continue: '.colorize(:yellow)
 end
 
 def main

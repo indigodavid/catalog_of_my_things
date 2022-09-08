@@ -3,20 +3,20 @@ require 'json'
 
 module BooksJson
   def find_label(id)
-    @labels.each { |label| return label if label.id == id }
+    @labels.find { |label| label.id == id }
   end
 
   def find_author(id)
-    @authors.each { |author| return author if author.id == id }
+    @authors.find { |author| author.id == id }
   end
 
   def find_genre(id)
-    @genres.each { |genre| return genre if genre.id == id }
+    @genres.find { |genre| genre.id == id }
   end
 
   def load_books
     data = []
-    file = './lib/catalog_of_my_things/books.json'
+    file = "#{PATH_TO_JSON}books.json"
 
     if File.exist?(file) && File.read(file) != ''
       json_array = JSON.parse(File.read(file))

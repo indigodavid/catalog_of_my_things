@@ -1,3 +1,4 @@
+require 'colorize'
 require_relative './catalog_of_my_things/game_json'
 require_relative './catalog_of_my_things/author_json'
 require_relative './catalog_of_my_things/game_author_module'
@@ -5,6 +6,12 @@ require_relative './catalog_of_my_things/game_author_module'
 require_relative './catalog_of_my_things/book_label_module'
 require_relative './catalog_of_my_things/label_json'
 require_relative './catalog_of_my_things/book_json'
+
+require_relative './catalog_of_my_things/music_genre_module'
+require_relative './catalog_of_my_things/genre_json'
+require_relative './catalog_of_my_things/music_json'
+
+PATH_TO_JSON = './json/'.freeze
 
 class App
   include GameAuthorModule
@@ -14,6 +21,10 @@ class App
   include BookLabelModule
   include LabelsJson
   include BooksJson
+
+  include MusicGenreModule
+  include GenreJson
+  include MusicAlbumJson
 
   def initialize
     @authors = load_authors
@@ -48,7 +59,7 @@ class App
       puts '2) Add genre'
       puts '3) Add label'
       puts '4) Keep as it is'
-      print 'Option: '
+      print 'Option: '.colorize(:yellow)
       option = gets.chomp.to_i
       case option
       when 1 then item = author_prompt(item)
@@ -56,7 +67,7 @@ class App
       when 3 then item = label_prompt(item)
       when 4 then break
       else
-        puts 'Invalid option try again.'
+        puts 'Invalid option try again.'.colorize(:light_red)
       end
     end
     item
@@ -65,7 +76,7 @@ class App
   def save_data(data_array, data_name)
     data = data_array.map(&:to_json)
 
-    File.write("./lib/catalog_of_my_things/#{data_name}.json", JSON.pretty_generate(data))
+    File.write("#{PATH_TO_JSON}#{data_name}.json", JSON.pretty_generate(data))
   end
 
   def valid_date?(date)
@@ -79,7 +90,7 @@ class App
   def validate_date(message = 'Date (YYYY-MM-DD): ', error_message = 'Invalid date. Try again.')
     date = ''
     until valid_date?(date)
-      print message
+      print message.colorize(:yellow)
       date = gets.chomp
       puts error_message unless valid_date?(date)
     end
