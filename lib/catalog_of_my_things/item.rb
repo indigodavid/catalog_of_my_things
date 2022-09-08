@@ -2,11 +2,12 @@ require 'date'
 require 'json'
 
 class Item
-  attr_accessor :genre, :author, :label, :publish_date
+  attr_accessor :genre, :author, :label, :publish_date, :title
   attr_reader :id, :archived
 
-  def initialize(publish_date, id = nil, archived = nil)
+  def initialize(publish_date, id = nil, archived = nil, title = nil)
     date = publish_date.split('-')
+    @title = title || 'Untitled'
     @publish_date = Date.new(date[0].to_i, date[1].to_i, date[2].to_i)
     @id = id || Random.rand(1..1_000_000)
     @archived = archived || false

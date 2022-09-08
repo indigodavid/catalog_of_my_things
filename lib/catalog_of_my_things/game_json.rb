@@ -10,6 +10,7 @@ module GameJson
       JSON.parse(File.read(file)).each do |game|
         game = JSON.parse(game)
         obj = Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'], game['id'], game['archived'])
+        obj.title = game['title']
 
         game_author = @authors.find { |author| obj.author.id == author.id }
         obj.add_author(game_author)
