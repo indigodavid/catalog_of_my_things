@@ -2,7 +2,7 @@ require_relative './item'
 require 'json'
 
 class Book < Item
-  attr_accessor :publisher, :cover_state
+  attr_accessor :publisher, :cover_state, :title
 
   def initialize(publish_date, publisher, cover_state, id = nil, archived: false)
     super(publish_date, id, archived)
@@ -18,6 +18,7 @@ class Book < Item
     {
       JSON.create_id => self.class.name,
       'id' => @id,
+      'title' => @title,
       'publish_date' => @publish_date,
       'publisher' => @publisher,
       'cover_state' => @cover_state,

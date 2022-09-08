@@ -8,7 +8,8 @@ module BookLabelModule
       puts 'No books registered so far.'
     else
       @books.each do |book|
-        puts "Publish date: #{book.publish_date}, Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
+        puts "Title: #{book.title}, Publish date: #{book.publish_date},
+              Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
       end
     end
   end
@@ -24,26 +25,18 @@ module BookLabelModule
   end
 
   def add_book
+    print 'Insert the title: '
+    title = gets.chomp
+
     publish_date = validate_date('Add publish date (YYYY-MM-DD): ')
 
     print 'Publisher: '
     publisher = gets.chomp
 
-    while true
-      print 'Cover state (select 1 for "good" or 2 for "bad" ): '
-      cover_option = gets.chomp.to_i
-
-      case cover_option
-      when 1 then cover_state = 'good'
-      when 2 then cover_state = 'bad'
-      else
-        puts "Wrong option \n\n"
-        next
-      end
-      break
-    end
+    cover_state = cover_state_prompt
 
     book = Book.new(publish_date, publisher, cover_state)
+    book.title = title
     new_book = add_additional_data(book)
     @books.push(new_book) unless @books.include?(new_book)
     save_data(@books, 'books')
@@ -63,5 +56,22 @@ module BookLabelModule
     save_data(@labels, 'labels')
     puts "Now your item has a label: #{label.title}."
     item
+  end
+
+  def cover_state_prompt
+    while true
+      print 'Cover state (select 1 for "good" or 2 for "bad" ): '
+      cover_option = gets.chomp.to_i
+
+      case cover_option
+      when 1 then cover_state = 'good'
+      when 2 then cover_state = 'bad'
+      else
+        puts "Wrong option \n\n"
+        next
+      end
+      break
+    end
+    cover_state
   end
 end
