@@ -19,6 +19,7 @@ class Game < Item
     {
       JSON.create_id => self.class.name,
       'id' => @id,
+      'title' => @title,
       'publish_date' => @publish_date,
       'genre' => @genre || nil,
       'author' => @author || nil,
@@ -31,6 +32,7 @@ class Game < Item
 
   def self.json_create(object)
     obj = new(
+      object['title'],
       object['publish_date'],
       object['multiplayer'],
       object['last_played_at'],
