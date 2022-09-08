@@ -1,4 +1,12 @@
+require_relative './catalog_of_my_things/game_json'
+require_relative './catalog_of_my_things/author_json'
+require_relative './catalog_of_my_things/game_author_module'
+
 class App
+  include GameAuthorModule
+  include GameJson
+  include AuthorJson
+
   def initialize
     @authors = load_authors
     @genres = load_genres
