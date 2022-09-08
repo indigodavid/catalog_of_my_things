@@ -21,18 +21,24 @@ class Item
   end
 
   def add_label(label)
-    label.add_item(self)
-    @label = label
+    if label
+      label.add_item(self)
+      @label = label
+    end
   end
 
   def add_author(author)
-    author.add_item(self)
-    @author = author
+    if author
+      author.add_item(self)
+      @author = author
+    end
   end
 
   def add_genre(genre)
-    genre.add_item(self)
-    @genre = genre
+    if genre
+      genre.add_item(self)
+      @genre = genre
+    end
   end
 
   private :can_be_archived?
