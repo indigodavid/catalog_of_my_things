@@ -18,6 +18,7 @@ class Book < Item
     {
       JSON.create_id => self.class.name,
       'id' => @id,
+      'title' => @title,
       'publish_date' => @publish_date,
       'publisher' => @publisher,
       'cover_state' => @cover_state,
