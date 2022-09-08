@@ -1,0 +1,4 @@
+[
+  "{\"json_class\":\"Game\",\"id\":373057,\"title\":\"Bloodborne\",\"publish_date\":\"2016-08-08\",\"genre\":null,\"author\":null,\"label\":null,\"archived\":false,\"multiplayer\":\"No\",\"last_played_at\":\"2021-09-09\"}",
+  "{\"json_class\":\"Game\",\"id\":212580,\"title\":\"God of War\",\"publish_date\":\"2005-09-08\",\"genre\":{\"json_class\":\"Genre\",\"name\":\"Fantasy\",\"id\":731860},\"author\":null,\"label\":null,\"archived\":false,\"multiplayer\":\"No\",\"last_played_at\":\"2019-03-03\"}"
+]
