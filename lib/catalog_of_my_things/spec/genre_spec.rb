@@ -1,5 +1,5 @@
-require_relative '../lib/catalog_of_my_things/music_album'
-require_relative '../lib/catalog_of_my_things/genre'
+require_relative '../music_album'
+require_relative '../genre'
 # require_relative '../genre'
 
 describe Genre do
