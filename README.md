@@ -4,6 +4,9 @@
 
 > For this group project we developed a Ruby App that seizes OOP concepts to create a catalog of different types of elements that inherit properties of a base class.
 
+## Video description
+
+[Video link](https://drive.google.com/file/d/1XyRqy4Sr7ncT8DcnXuO-znIpKxt0MRYn/view?usp=sharing)
 
 ## Built With
 
