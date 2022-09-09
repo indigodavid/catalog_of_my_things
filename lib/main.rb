@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 require_relative './app'
 require 'colorize'
 
